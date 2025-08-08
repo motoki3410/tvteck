@@ -1,0 +1,13 @@
+#!/bin/bash
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PARENT_DIR="$(dirname "$SCRIPT_DIR")"
+VENV_PATH="$PARENT_DIR/.venv"
+
+if [ ! -d "$VENV_PATH" ]; then
+  echo "Error: Virtual environment not found at $VENV_PATH"
+  exit 1
+fi
+
+source "$VENV_PATH/bin/activate"
+tvteck "$@"
