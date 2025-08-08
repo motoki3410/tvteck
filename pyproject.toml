@@ -23,6 +23,9 @@ dev = [
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[project.scripts]
+tvteck = "tvteck:main"
+
 [tool.setuptools.package-data]
 "*" = ["*.json", "*.yaml", "*.yml", "*.txt"]
 
