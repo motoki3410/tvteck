@@ -1,9 +1,15 @@
+from parameter.parameter_manager import ParameterManager
 import argparse
 
 
-def main():
-    parser = argparse.ArgumentParser(description="TVTeck Client Script")
-    parser.add_argument("--config", type=str, help="Path to the configuration file")
-    args = parser.parse_args()
+def show_parameters():
+    param_manager = ParameterManager()
+    param_manager.show_parameters()
 
-    print("This is the main entry point for the tvteck client script.")
+
+def main():
+    show_parameters()
+
+
+if __name__ == "__main__":
+    main()
