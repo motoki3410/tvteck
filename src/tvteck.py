@@ -4,7 +4,7 @@ import argparse
 
 def show_parameters():
     param_manager = ParameterManager()
-    param_manager.show_parameters()
+    param_manager.show_field_name()
 
 
 def main():
