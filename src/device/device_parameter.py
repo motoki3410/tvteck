@@ -3,5 +3,13 @@ from dataclasses import dataclass
 
 
 @dataclass
+class DeviceConfig(BaseParameter):
+    test: str = "test"
+
+
+@dataclass
 class DeviceParameter(BaseParameter):
-    device_type: str = "generic"
+    dsn: str = "jp_device_1"
+    project: str = "wyoming"
+    region: str = "jp"
+    config: DeviceConfig = None
