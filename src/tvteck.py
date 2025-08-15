@@ -1,10 +1,11 @@
 import argparse
 
 from device.device_cli import DeviceCli
-
+from update.update_cli import UpdateCli
 
 category_map = {
-    "device": DeviceCli
+    "device": DeviceCli,
+    "update": UpdateCli
 }
 
 
@@ -20,6 +21,6 @@ def main():
     args = parser.parse_args()
 
     if hasattr(args, 'func'):
-        args.func()
+        args.func(args)
     else:
         parser.print_help()

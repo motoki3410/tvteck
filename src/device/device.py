@@ -10,7 +10,3 @@ class Device:
 
     def set_parameter(self, param: DeviceParameter):
         self.param = param
-
-    def load_device_file(self, filename):
-        filepath = os.path.join("data/device", filename)
-        self.param = load_yaml(filepath)

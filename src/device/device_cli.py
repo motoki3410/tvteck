@@ -1,6 +1,9 @@
+from device.device import Device
+
+
 class DeviceCli:
     def __init__(self):
-        pass
+        self.device = Device()
 
     def register(self, subparsers):
         parser = subparsers.add_parser(

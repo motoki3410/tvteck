@@ -1,0 +1,552 @@
+<mxfile host="Electron" modified="2024-08-16T00:00:00.000Z" agent="5.0" etag="abc123" version="21.6.5" type="device">
+  <diagram name="TVTeck Architecture" id="architecture-overview">
+    <mxGraphModel dx="1422" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="TVTeck E2E Testing Framework Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="450" y="30" width="500" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- CLI Layer -->
+        <mxCell id="cli-layer" value="CLI Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="1200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Main Entry Point -->
+        <mxCell id="tvteck-main" value="tvteck.py&#xa;(main)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="200" y="200" width="120" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Device CLI -->
+        <mxCell id="device-cli" value="device_cli.py&#xa;DeviceCli" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="500" y="200" width="120" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Bin Scripts -->
+        <mxCell id="bin-scripts" value="bin/tvteck&#xa;(Wrapper Script)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="800" y="200" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- CLI to Device connection -->
+        <mxCell id="cli-device-conn" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="tvteck-main" target="device-cli">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Core Modules Layer -->
+        <mxCell id="core-layer" value="Core Modules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="350" width="1200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Device Module -->
+        <mxCell id="device-module" value="Device Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="150" y="450" width="250" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="device-class" value="device.py&#xa;Device" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="150" y="530" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="device-param" value="device_parameter.py&#xa;DeviceParameter&#xa;DeviceConfig" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="290" y="530" width="110" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Parameter Management Module -->
+        <mxCell id="parameter-module" value="Parameter Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="450" y="450" width="250" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="param-manager" value="parameter_manager.py&#xa;ParameterManager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="450" y="530" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="base-param" value="base_parameter.py&#xa;BaseParameter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="590" y="530" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Update Module -->
+        <mxCell id="update-module" value="Update Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="750" y="450" width="170" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="update-param" value="update_parameter.py&#xa;UpdateParameter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="750" y="530" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Utility Library -->
+        <mxCell id="lib-module" value="Library Utilities" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="970" y="450" width="170" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="yaml-util" value="yaml_util.py&#xa;load_yaml()&#xa;dump_yaml()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="970" y="530" width="110" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Future Modules (Development) -->
+        <mxCell id="future-layer" value="Future Modules (In Development)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="700" width="1200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- E2E Core -->
+        <mxCell id="e2e-core" value="E2E Core" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="150" y="800" width="280" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="client" value="client.py" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="150" y="870" width="80" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="server" value="server/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="250" y="870" width="80" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="job" value="job/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="350" y="870" width="80" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Test Manager -->
+        <mxCell id="test-manager" value="Test Manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="470" y="800" width="150" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Tracer -->
+        <mxCell id="tracer" value="Tracer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="660" y="800" width="150" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Data Layer -->
+        <mxCell id="data-layer" value="Data &amp; Configuration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="980" width="1200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- YAML Files -->
+        <mxCell id="yaml-files" value="YAML Configuration Files" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="150" y="1080" width="250" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sample-params" value="sample_parameters.yaml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="150" y="1150" width="110" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="device-yaml" value="device/&#xa;sample_device.yaml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="290" y="1150" width="110" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Dependencies -->
+        <mxCell id="deps" value="External Dependencies" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="470" y="1080" width="250" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pyyaml" value="PyYAML" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="470" y="1150" width="70" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dacite" value="dacite" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="560" y="1150" width="70" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dataclasses" value="dataclasses" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="650" y="1150" width="70" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Key connections with proper routing -->
+        <mxCell id="device-cli-to-device" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="device-cli" target="device-class">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="290" as="sourcePoint" />
+            <mxPoint x="205" y="530" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="560" y="300" />
+              <mxPoint x="205" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="device-to-param" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="device-class" target="device-param">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="param-inheritance" value="inherits" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="device-param" target="base-param">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="345" y="510" />
+              <mxPoint x="590" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="update-inheritance" value="inherits" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="update-param" target="base-param">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="805" y="510" />
+              <mxPoint x="700" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="param-manager-uses-yaml" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="param-manager" target="yaml-util">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="param-manager-manages" value="manages" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="param-manager" target="device-param">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="565" />
+              <mxPoint x="420" y="510" />
+              <mxPoint x="400" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="param-manager-manages-update" value="manages" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="param-manager" target="update-param">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="565" />
+              <mxPoint x="580" y="510" />
+              <mxPoint x="750" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="yaml-to-files" value="reads/writes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="yaml-util" target="sample-params">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1025" y="650" />
+              <mxPoint x="205" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend-title" value="Legend" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1150" y="800" width="80" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-implemented" value="Implemented" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1150" y="840" width="80" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend-future" value="Future/Dev" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="1150" y="880" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-config" value="Configuration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1150" y="920" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-param" value="Parameters" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1150" y="960" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-util" value="Utilities" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1150" y="1000" width="80" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <diagram name="Parameter System" id="parameter-system">
+    <mxGraphModel dx="1422" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="param-title" value="TVTeck Parameter Management System" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="450" y="30" width="500" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Base Parameter Layer -->
+        <mxCell id="base-layer" value="Base Parameter Framework" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="1200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- BaseParameter Class -->
+        <mxCell id="base-param-class" value="BaseParameter&#xa;(Abstract Base Class)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="600" y="200" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Base Methods -->
+        <mxCell id="get-field-names" value="get_field_names()&#xa;→ List[str]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="450" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dump-parameter" value="dump_parameter()&#xa;→ Dict" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="730" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Concrete Parameter Classes -->
+        <mxCell id="concrete-layer" value="Concrete Parameter Classes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="430" width="1200" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="any-param-1" value="AnyParameter&#xa;@dataclass" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="200" y="530" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="any-param-2" value="AnotherParameter&#xa;@dataclass" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="450" y="530" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="any-param-3" value="CustomParameter&#xa;@dataclass" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="700" y="530" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="any-param-4" value="...ExtensibleParameter&#xa;@dataclass" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="950" y="530" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Parameter Manager -->
+        <mxCell id="param-mgr-layer" value="Parameter Management Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="660" width="1200" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="param-manager-class" value="ParameterManager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="600" y="760" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Manager Functions -->
+        <mxCell id="param-map" value="param_map&#xa;{category: ParameterClass}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="150" y="880" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="set-param" value="set_parameter()&#xa;get_parameter()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="360" y="880" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="load-dump" value="load_parameter_file()&#xa;dump_parameter_file()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="620" y="880" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="show-param" value="show_parameter()&#xa;set_all_parameters()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="820" y="880" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- YAML Integration -->
+        <mxCell id="yaml-layer" value="YAML Integration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="1000" width="1200" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="yaml-files-param" value="YAML Configuration Files" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="300" y="1100" width="200" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="yaml-util-param" value="yaml_util.py&#xa;load_yaml() / dump_yaml()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="600" y="1100" width="200" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dacite-param" value="dacite&#xa;from_dict() conversion" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="900" y="1100" width="200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Connections -->
+        <mxCell id="base-to-methods" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="base-param-class" target="get-field-names">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="base-to-dump" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="base-param-class" target="dump-parameter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Inheritance arrows -->
+        <mxCell id="inherit1" value="inherits" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="any-param-1" target="base-param-class">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="inherit2" value="inherits" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.4;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="any-param-2" target="base-param-class">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="inherit3" value="inherits" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.6;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="any-param-3" target="base-param-class">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="inherit4" value="inherits" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.8;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="any-param-4" target="base-param-class">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Manager connections -->
+        <mxCell id="mgr-to-map" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="param-manager-class" target="param-map">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mgr-to-set" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="param-manager-class" target="set-param">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mgr-to-load" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="param-manager-class" target="load-dump">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mgr-to-show" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="param-manager-class" target="show-param">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- YAML connections -->
+        <mxCell id="load-to-yaml" value="reads/writes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="load-dump" target="yaml-files-param">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="load-to-util" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="load-dump" target="yaml-util-param">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="load-to-dacite" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="load-dump" target="dacite-param">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <diagram name="CLI System" id="cli-system">
+    <mxGraphModel dx="1422" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="cli-title" value="TVTeck CLI System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="450" y="30" width="500" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Entry Point Layer -->
+        <mxCell id="entry-layer" value="CLI Entry Point" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="1200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Main CLI -->
+        <mxCell id="main-cli" value="main()&#xa;ArgumentParser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="600" y="200" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Subparser Creation -->
+        <mxCell id="subparser-creation" value="subparsers = parser.add_subparsers()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="575" y="320" width="250" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Category Registration Layer -->
+        <mxCell id="category-layer" value="Category Registration Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="420" width="1200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Category Map -->
+        <mxCell id="category-map" value="category_map = {&#xa;  'category1': Cli1,&#xa;  'category2': Cli2,&#xa;  ...&#xa;}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="600" y="520" width="200" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- CLI Classes Layer -->
+        <mxCell id="cli-classes-layer" value="CLI Implementation Classes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="680" width="1200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Generic CLI Classes -->
+        <mxCell id="cli-class-1" value="AnyCli" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="200" y="780" width="150" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cli-class-2" value="AnotherCli" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="450" y="780" width="150" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cli-class-3" value="CustomCli" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="700" y="780" width="150" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cli-class-4" value="...ExtensibleCli" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="950" y="780" width="150" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- CLI Methods -->
+        <mxCell id="register-method" value="register(subparsers)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="150" y="900" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="command-methods" value="command methods&#xa;(_cmd_func1, _cmd_func2, ...)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="320" y="900" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="subcommand-creation" value="add_parser()&#xa;set_defaults(func=...)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="530" y="900" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Command Execution Layer -->
+        <mxCell id="execution-layer" value="Command Execution Flow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="1020" width="1200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Execution Flow -->
+        <mxCell id="args-parse" value="args = parser.parse_args()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="200" y="1120" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="has-func" value="hasattr(args, 'func')" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="450" y="1120" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="call-func" value="args.func()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="680" y="1070" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="print-help" value="parser.print_help()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="680" y="1170" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Registration Flow Connections -->
+        <mxCell id="main-to-subparser" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="main-cli" target="subparser-creation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="subparser-to-map" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="subparser-creation" target="category-map">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Category to CLI connections -->
+        <mxCell id="map-to-cli1" value="instantiate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="category-map" target="cli-class-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="map-to-cli2" value="instantiate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.4;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="category-map" target="cli-class-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="map-to-cli3" value="instantiate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.6;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="category-map" target="cli-class-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="map-to-cli4" value="instantiate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.8;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="category-map" target="cli-class-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- CLI to methods connections -->
+        <mxCell id="cli1-to-register" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cli-class-1" target="register-method">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cli-to-commands" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cli-class-2" target="command-methods">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cli-to-subcommand" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cli-class-3" target="subcommand-creation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Execution flow connections -->
+        <mxCell id="parse-to-check" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="args-parse" target="has-func">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="check-to-func" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="has-func" target="call-func">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="check-to-help" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="has-func" target="print-help">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
