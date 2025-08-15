@@ -22,6 +22,9 @@ class ParameterManager():
         for name, param_class in self.param_map.items():
             self.parameters[name] = param_class()
 
+    def get_parameter(self, name: str):
+        return self.parameters.get(name)
+
     def get_field_names(self, category=None):
         if not category:
             return
@@ -45,10 +48,11 @@ class ParameterManager():
                 self.set_parameter(name, from_dict(param_class, params))
 
     def dump_parameter_file(self, filename):
+        filepath = os.path.join("data/", filename)
         param_dict = {}
         for name, param in self.parameters.items():
             param_dict[name] = param.dump_parameter()
-        dump_yaml(param_dict, os.path.join("data/", filename))
+        dump_yaml(param_dict, filepath)
 
     def show_parameter(self):
         for name, param in self.parameters.items():

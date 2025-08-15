@@ -1,27 +1,25 @@
-from parameter.parameter_manager import ParameterManager
 import argparse
 
+from device.device_cli import DeviceCli
 
-def show_parameters():
-    param_manager = ParameterManager()
-    # param_manager.show_field_names()
-    # print(param_manager.get_field_names())
-    param_manager.set_all_parameters()
-    param_manager.load_parameter_file("sample_parameters.yaml")
-    param_manager.show_parameter()
-    param_manager.dump_parameter_file("dump_parameters.yaml")
+
+category_map = {
+    "device": DeviceCli
+}
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="TVTeck Client Script"
-    )
-    parser.add_argument(
-        "--show-params",
-        action="store_true",
-        help="Show available parameters and their field names",
-    )
+    parser = argparse.ArgumentParser(description="TVTeck Client Script")
+    subparsers = parser.add_subparsers(dest="category")
+
+    # set cli command for each category
+    for _, cli_class in category_map.items():
+        cli_instance = cli_class()
+        cli_instance.register(subparsers)
+
     args = parser.parse_args()
 
-    if args.show_params:
-        show_parameters()
+    if hasattr(args, 'func'):
+        args.func()
+    else:
+        parser.print_help()
