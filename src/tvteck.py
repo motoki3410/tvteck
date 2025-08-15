@@ -9,6 +9,7 @@ def show_parameters():
     param_manager.set_all_parameters()
     param_manager.load_parameter_file("sample_parameters.yaml")
     param_manager.show_parameter()
+    param_manager.dump_parameter_file("dump_parameters.yaml")
 
 
 def main():

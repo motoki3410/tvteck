@@ -44,6 +44,12 @@ class ParameterManager():
             if param_class:
                 self.set_parameter(name, from_dict(param_class, params))
 
+    def dump_parameter_file(self, filename):
+        param_dict = {}
+        for name, param in self.parameters.items():
+            param_dict[name] = param.dump_parameter()
+        dump_yaml(param_dict, os.path.join("data/", filename))
+
     def show_parameter(self):
         for name, param in self.parameters.items():
             print(f"Parameter Name: {name}")

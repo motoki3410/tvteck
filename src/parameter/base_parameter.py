@@ -14,4 +14,4 @@ class BaseParameter:
         return field_names
 
     def dump_parameter(self):
-        print(asdict(self))
+        return asdict(self)
