@@ -5,6 +5,7 @@ from dataclasses import dataclass
 @dataclass
 class DeviceConfig(BaseParameter):
     test: str = "test"
+    update: bool = False
 
 
 @dataclass

@@ -1,3 +1,7 @@
+import os
+
+from dacite import from_dict
+from lib.yaml_util import load_yaml, dump_yaml
 from device.device_parameter import DeviceParameter
 from update.update_parameter import UpdateParameter
 
@@ -31,8 +35,17 @@ class ParameterManager():
             params[name] = param.get_field_names(param)
         return params
 
-    def dump_parameter(self, category):
-        if not category:
-            return
+    def load_parameter_file(self, filename):
+        file_path = os.path.join("data/", filename)
+        load_param = load_yaml(file_path)
 
-        self.parameters[category].dump_parameter()
+        for name, params in load_param.items():
+            param_class = self.param_map.get(name)
+            if param_class:
+                self.set_parameter(name, from_dict(param_class, params))
+
+    def show_parameter(self):
+        for name, param in self.parameters.items():
+            print(f"Parameter Name: {name}")
+            print(f"Parameter Value: {param}")
+            print("-" * 20)

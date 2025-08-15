@@ -6,9 +6,9 @@ def show_parameters():
     param_manager = ParameterManager()
     # param_manager.show_field_names()
     # print(param_manager.get_field_names())
-    print(param_manager.get_all_category_field_names())
     param_manager.set_all_parameters()
-    param_manager.dump_parameter("device")
+    param_manager.load_parameter_file("sample_parameters.yaml")
+    param_manager.show_parameter()
 
 
 def main():

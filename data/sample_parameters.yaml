@@ -1,0 +1,7 @@
+device:
+  dsn: "test_device"
+  project: "display"
+  region: "1920x1080"
+  config: 
+    test: test
+    update: true
