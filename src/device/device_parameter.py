@@ -1,19 +1,19 @@
 from parameter.base_parameter import BaseParameter
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
 class DeviceConfig(BaseParameter):
-    test: str = "test"
+    test: str = None
     update: bool = False
 
 
 @dataclass
 class DeviceParameter(BaseParameter):
-    dsn: str = "jp_device_1"
-    project: str = "wyoming"
-    region: str = "jp"
-    config: DeviceConfig = None
+    dsn: str = None
+    project: str = None
+    region: str = None
+    config: DeviceConfig = field(default_factory=DeviceConfig)
 
     def update_parameter(self):
         self.project = "updated_project"

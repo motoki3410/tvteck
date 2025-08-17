@@ -97,11 +97,7 @@ class ParameterManager():
         if not categories:
             categories = self.parameters.keys()
 
-        for category in categories:
-            param = self.get_parameter(category)
-            if param:
-                param_dict[category] = param.dump_parameter()
-
+        self.create_param_dict(param_dict, categories)
         dump_yaml(param_dict, filepath)
 
     def show_parameter(self):
@@ -112,3 +108,9 @@ class ParameterManager():
             print(f"Parameter Name: {name}")
             print(f"Parameter Value: {param}")
             print("-" * 20)
+
+    def create_param_dict(self, param_dict, categories):
+        for category in categories:
+            param = self.get_parameter(category)
+            if param:
+                param_dict[category] = param.dump_parameter()

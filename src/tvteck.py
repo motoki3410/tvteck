@@ -2,10 +2,12 @@ import argparse
 
 from device.device_cli import DeviceCli
 from update.update_cli import UpdateCli
+from e2e_core.job.job_cli import JobCli
 
 category_map = {
     "device": DeviceCli,
-    "update": UpdateCli
+    "update": UpdateCli,
+    "job": JobCli
 }
 
 
