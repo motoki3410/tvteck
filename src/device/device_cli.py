@@ -9,10 +9,9 @@ from device.device_parameter import DeviceParameter
 class DeviceCli(BaseCli):
     def __init__(self):
         super().__init__()
-        self.category = "device"
         self.device = Device()
         self.param_class = DeviceParameter
-        self.device_data_dir = "device"
+        self.category = self.device.category
 
     def register(self, subparsers):
         parser = subparsers.add_parser(
@@ -52,5 +51,5 @@ class DeviceCli(BaseCli):
 
         param = DeviceParameter()
         param.update_parameter()
-        filepath = os.path.join(self.device_data_dir, args.output)
+        filepath = os.path.join(self.device.device_data_dir, args.output)
         self._dump_param_to_file(param, filepath)

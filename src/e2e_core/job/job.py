@@ -1,17 +1,20 @@
 import os
-from datetime import datetime
 
-from lib.yaml_util import dump_yaml
 from parameter.parameter_manager import ParameterManager
+from e2e_core.job.job_info import JobParameter
 
 
 class Job:
     def __init__(self):
-        self.job_data_dir = "data/job"
+        self.category = "job"
+        self.job_data_dir = "job"
+        self.param_name = "job_info"
 
     def create_new_job_file(self, job_name):
-        filename = f"{job_name}.yaml"
-        filepath = os.path.join(self.job_data_dir, filename)
+        filepath = os.path.join(self.job_data_dir, job_name)
+
+        param = JobParameter()
+        param.set_new_job_info(job_name)
 
         pm = ParameterManager()
         pm.set_all_parameters()
@@ -19,9 +22,5 @@ class Job:
         job_categories = list(pm.param_map.keys())
         job_categories.remove("device")
 
-        param_dict = {
-            "name": job_name,
-            "created_date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        }
-        pm.create_param_dict(param_dict, job_categories)
-        dump_yaml(param_dict, filepath)
+        pm.set_parameter(self.param_name, param)
+        pm.dump_parameter_file(filepath, job_categories)

@@ -4,10 +4,12 @@ from dacite import from_dict
 from lib.yaml_util import load_yaml, dump_yaml
 from device.device_parameter import DeviceParameter
 from update.update_parameter import UpdateParameter
+from e2e_core.job.job_info import JobParameter
 
 
 class ParameterManager():
     param_map = {
+        "job_info": JobParameter,
         "device": DeviceParameter,
         "update": UpdateParameter,
     }
@@ -91,13 +93,17 @@ class ParameterManager():
         Args:
             filename: Output filename under the `data/` directory.
         """
-        filepath = os.path.join("data/", filename)
+        filepath = os.path.join("data/", f"{filename}.yaml")
         param_dict = {}
 
         if not categories:
             categories = self.parameters.keys()
 
-        self.create_param_dict(param_dict, categories)
+        for category in categories:
+            param = self.get_parameter(category)
+            if param:
+                param_dict[category] = param.dump_parameter()
+
         dump_yaml(param_dict, filepath)
 
     def show_parameter(self):
@@ -108,9 +114,3 @@ class ParameterManager():
             print(f"Parameter Name: {name}")
             print(f"Parameter Value: {param}")
             print("-" * 20)
-
-    def create_param_dict(self, param_dict, categories):
-        for category in categories:
-            param = self.get_parameter(category)
-            if param:
-                param_dict[category] = param.dump_parameter()

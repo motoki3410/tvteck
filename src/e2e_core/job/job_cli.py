@@ -7,9 +7,8 @@ from e2e_core.job.job import Job
 class JobCli(BaseCli):
     def __init__(self):
         super().__init__()
-        self.category = "job"
         self.job = Job()
-        self.job_data_dir = "job"
+        self.category = self.job.category
 
     def register(self, subparsers):
         parser = subparsers.add_parser(
