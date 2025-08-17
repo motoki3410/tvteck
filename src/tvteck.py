@@ -4,12 +4,14 @@ from device.device_cli import DeviceCli
 from update.update_cli import UpdateCli
 from e2e_core.job.job_cli import JobCli
 from test_manager.test_manager_cli import TestManagerCli
+from controller.controller_cli import ControllerCli
 
 category_map = {
     "device": DeviceCli,
     "update": UpdateCli,
     "job": JobCli,
-    "test_manager": TestManagerCli
+    "test_manager": TestManagerCli,
+    "controller": ControllerCli
 }
 
 

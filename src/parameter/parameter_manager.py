@@ -5,13 +5,15 @@ from lib.yaml_util import load_yaml, dump_yaml
 from device.device_parameter import DeviceParameter
 from update.update_parameter import UpdateParameter
 from e2e_core.job.job_info import JobParameter
+from controller.controller_parameter import ControllerParameter
 
 
 class ParameterManager():
     param_map = {
         "job_info": JobParameter,
         "device": DeviceParameter,
-        "update": UpdateParameter,
+        "controller": ControllerParameter,
+        "update": UpdateParameter
     }
 
     def __init__(self):

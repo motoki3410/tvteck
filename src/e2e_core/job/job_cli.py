@@ -40,6 +40,12 @@ class JobCli(BaseCli):
             type=str,
             help="Name of the job"
         )
+        sp.add_argument(
+            "--controller",
+            type=str,
+            default=None,
+            help="Type of controller to use (e.g. 'livetv_kpi')"
+        )
         sp.set_defaults(func=self.create)
 
     def create(self, args):
@@ -47,7 +53,7 @@ class JobCli(BaseCli):
         if not self._is_exist_args(args, req_param):
             return
 
-        self.job.create_new_job_file(args.name)
+        self.job.create_new_job_file(args.name, args.controller)
 
     # ---------------------
     # Load job file

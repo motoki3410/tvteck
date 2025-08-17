@@ -10,7 +10,7 @@ class Job:
         self.job_data_dir = "job"
         self.param_name = "job_info"
 
-    def create_new_job_file(self, job_name):
+    def create_new_job_file(self, job_name, controller):
         filepath = os.path.join(self.job_data_dir, job_name)
 
         param = JobParameter()
@@ -18,11 +18,17 @@ class Job:
 
         pm = ParameterManager()
         pm.set_all_parameters()
+        pm.set_parameter(self.param_name, param)
 
         job_categories = list(pm.param_map.keys())
         job_categories.remove("device")
 
-        pm.set_parameter(self.param_name, param)
+        if controller:
+            controller_param = pm.get_parameter("controller")
+            controller_param.type = controller
+            controller_param.set_type_param()
+            pm.set_parameter("controller", controller_param)
+
         pm.dump_parameter_file(filepath, job_categories)
 
     def load_job_file(self, job_name):
