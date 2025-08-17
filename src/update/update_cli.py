@@ -7,6 +7,7 @@ from update.update import Update
 
 class UpdateCli(BaseCli):
     def __init__(self):
+        super().__init__()
         self.category = "update"
         self.update = Update()
         self.param_class = UpdateParameter

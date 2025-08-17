@@ -14,3 +14,8 @@ class DeviceParameter(BaseParameter):
     project: str = "wyoming"
     region: str = "jp"
     config: DeviceConfig = None
+
+    def update_parameter(self):
+        self.project = "updated_project"
+        self.region = "updated_region"
+        self.config = DeviceConfig()

@@ -8,6 +8,7 @@ class BaseCli(ABC):
         self.category = None
         self.cmd_sp = None
         self.param_class = None
+        self.cmd_dest = "command"
 
     @abstractmethod
     def register(self, subparsers):
@@ -53,3 +54,8 @@ class BaseCli(ABC):
             setattr(param, name, getattr(args, name, None))
 
         return param
+
+    def _dump_param_to_file(self, param, filepath):
+        pm = ParameterManager()
+        pm.set_parameter(self.category, param)
+        pm.dump_parameter_file(filepath)
