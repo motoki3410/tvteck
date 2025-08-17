@@ -1,15 +1,19 @@
 import argparse
+
+from base_cli import BaseCli
+from update.update_parameter import UpdateParameter
 from update.update import Update
 
 
-class UpdateCli:
+class UpdateCli(BaseCli):
     def __init__(self):
+        self.category = "update"
         self.update = Update()
-        self.cmd_sp = None
+        self.param_class = UpdateParameter
 
     def register(self, subparsers):
         parser = subparsers.add_parser(
-            "update",
+            self.category,
             help="Update related commands"
         )
         self.cmd_sp = parser.add_subparsers(dest="command")
@@ -20,21 +24,8 @@ class UpdateCli:
 
         # register cmd
         self._register_download_cmd(common_parser)
-        self._register_tmp_cmd(common_parser)
 
         parser.set_defaults(func=lambda args: parser.print_help())
-
-    def _add_common_args(self, parser):
-        parser.add_argument(
-            "--param",
-            help="Use parameter from parameter manager",
-            action="store_true"
-        )
-
-    def _show_command_help(self, args, msg):
-        if msg:
-            print(msg)
-        self.cmd_sp.choices.get(args.command).print_help()
 
     # -------------------------
     # Download Command
@@ -57,37 +48,10 @@ class UpdateCli:
         sp.set_defaults(func=self.download)
 
     def download(self, args):
-        if args.param:
-            print("Using parameter manager for download.")
+        req_param = ["server", "url"]
+        param = self._resolve_parameter(args, req_param)
+        if not param:
             return
-        else:
-            req_args = ["server", "url"]
-            missing = [name for name in req_args if not getattr(args, name, None)]
-            if missing:
-                self._show_command_help(
-                    args,
-                    f"Missing arguments for download: {', '.join(missing)}"
-                )
-                return
 
-    # -------------------------
-    # Tmp command
-    # -------------------------
-
-    def _register_tmp_cmd(self, common_parser):
-        sp = self.cmd_sp.add_parser(
-            "tmp",
-            help="Temporary command for testing",
-            parents=[common_parser]
-        )
-        sp.add_argument(
-            "--dsn",
-            help="Data Source Name"
-        )
-        sp.set_defaults(func=self.tmp)
-
-    def tmp(self, args):
-        if not args.dsn:
-            self._show_command_help(args, "Missing arguments for tmp command.")
-            return
-        self.update.install_fw(args.dsn)
+        self.update.set_parameter(param)
+        self.update.download_fw()

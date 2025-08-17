@@ -4,4 +4,6 @@ from dataclasses import dataclass
 
 @dataclass
 class UpdateParameter(BaseParameter):
-    update_frequency: int = 24
+    server: str = None
+    filename: str = None
+    url: str = None

@@ -9,7 +9,7 @@ description = "E2E testing framework with modular components"
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
-    "PyYaml"
+    "PyYaml",
     "dacite",
 ]
 

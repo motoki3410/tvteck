@@ -5,5 +5,9 @@ class Update:
     def __init__(self):
         self.param: UpdateParameter = None
 
-    def install_fw(self, dsn):
-        print(f"Installing firmware for {dsn}")
+    def set_parameter(self, param: UpdateParameter):
+        self.param = param
+
+    def download_fw(self):
+        print("Downloading firmware...")
+        print(self.param)

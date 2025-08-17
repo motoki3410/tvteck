@@ -9,9 +9,10 @@ TVTeckは、デバイス管理とパラメータ管理を中心とした、拡�
 ## 機能
 
 - **デバイス管理**: YAMLファイルベースのデバイス設定管理とCLIインターフェース
+- **アップデート管理**: ファームウェアダウンロード等のアップデート機能
 - **パラメータ管理**: dataclassベースの型安全なパラメータシステム
+- **拡張可能なCLI**: モジュラー設計による柔軟なコマンドラインインターフェース
 - **ライブラリユーティリティ**: YAML読み込み/書き込み機能
-- **更新管理**: 設定可能な更新パラメータ管理
 - **E2Eテストサポート**: テスト実行環境の基盤機能
 
 ## インストール
@@ -40,19 +41,34 @@ pip install tvteck
 
 ### コマンドラインツール
 
+TVTeckは拡張可能なCLIアーキテクチャを採用しており、カテゴリごとにコマンドが整理されています。
+
 ```bash
 # ヘルプメッセージを表示
 tvteck
 
 # デバイス関連コマンド
-tvteck device
+tvteck device --help
 
-# デバイステスト実行
+# アップデート関連コマンド  
+tvteck update --help
+
+# デバイス一時テスト実行
 tvteck device tmp
+
+# ファームウェアダウンロード
+tvteck update download --server example.com --url /firmware.bin
+
+# パラメータファイルを使用したコマンド実行
+tvteck device some-command --param data/sample_parameters.yaml
+tvteck update download --param data/update_param.yaml
 
 # 仮想環境を使用してコマンド実行
 ./bin/tvteck device tmp
+./bin/tvteck update download --server example.com --url /firmware.bin
 ```
+
+CLIシステムの詳細については、[CLIドキュメント](docs/cli.md)を参照してください。
 
 ### Python API
 
@@ -109,7 +125,8 @@ tvteck/
 │       └── sample_device.yaml  # サンプルデバイス設定
 ├── e2e_test/             # E2Eテストスイート
 ├── docs/                 # ドキュメント
-│   └── parameter.md      # パラメータシステム詳細ドキュメント
+│   ├── parameter.md      # パラメータシステム詳細ドキュメント
+│   └── cli.md           # CLIシステム詳細ドキュメント
 ├── bin/                  # 実行可能スクリプト
 │   ├── tvteck           # tvteckラッパースクリプト
 │   └── screencap        # スクリーンキャプチャ（開発中）
@@ -148,6 +165,24 @@ update:
 ```
 
 詳細については、[パラメータドキュメント](docs/parameter.md)を参照してください。
+
+## CLIアーキテクチャ
+
+TVTeckは拡張可能なCLIアーキテクチャを採用しています：
+
+### 特徴
+
+- **モジュラー設計**: カテゴリごとに独立したCLIクラス
+- **共通インターフェース**: BaseCli継承による一貫性
+- **パラメータ統合**: CLI引数とYAMLファイルの統合サポート
+- **型安全なパラメータ**: dataclassベースのパラメータ解決
+
+### サポートされているカテゴリ
+
+- `device`: デバイス管理コマンド
+- `update`: ファームウェアアップデート関連コマンド
+
+CLIシステムの詳細については、[CLIドキュメント](docs/cli.md)を参照してください。
 
 ## 開発
 

@@ -84,7 +84,7 @@ class ParameterManager():
             if param_class:
                 self.set_parameter(name, from_dict(param_class, params))
 
-    def dump_parameter_file(self, filename):
+    def dump_parameter_file(self, filename, categories=None):
         """
         Dump current parameters to a YAML file under `data/`.
 
@@ -93,8 +93,15 @@ class ParameterManager():
         """
         filepath = os.path.join("data/", filename)
         param_dict = {}
-        for name, param in self.parameters.items():
-            param_dict[name] = param.dump_parameter()
+
+        if not categories:
+            categories = self.parameters.keys()
+
+        for category in categories:
+            param = self.get_parameter(category)
+            if param:
+                param_dict[category] = param.dump_parameter()
+
         dump_yaml(param_dict, filepath)
 
     def show_parameter(self):
