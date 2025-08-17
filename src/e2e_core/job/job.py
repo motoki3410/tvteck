@@ -24,3 +24,9 @@ class Job:
 
         pm.set_parameter(self.param_name, param)
         pm.dump_parameter_file(filepath, job_categories)
+
+    def load_job_file(self, job_name):
+        filepath = os.path.join(self.job_data_dir, job_name)
+
+        pm = ParameterManager()
+        pm.load_parameter_file(filepath)

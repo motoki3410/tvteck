@@ -78,7 +78,7 @@ class ParameterManager():
         Args:
             filename: Path under the `data/` directory to load.
         """
-        file_path = os.path.join("data/", filename)
+        file_path = os.path.join("data/", f"{filename}.yaml")
         load_param = load_yaml(file_path)
 
         for name, params in load_param.items():

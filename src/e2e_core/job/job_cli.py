@@ -23,6 +23,7 @@ class JobCli(BaseCli):
 
         # register cmd
         self._register_create_cmd()
+        self._register_load_cmd()
 
         parser.set_defaults(func=lambda args: parser.print_help())
 
@@ -47,3 +48,25 @@ class JobCli(BaseCli):
             return
 
         self.job.create_new_job_file(args.name)
+
+    # ---------------------
+    # Load job file
+    # ---------------------
+    def _register_load_cmd(self):
+        sp = self.cmd_sp.add_parser(
+            "load",
+            help="Load an existing job file"
+        )
+        sp.add_argument(
+            "--job",
+            type=str,
+            help="Name of the job file to load"
+        )
+        sp.set_defaults(func=self.load)
+
+    def load(self, args):
+        req_param = ["job"]
+        if not self._is_exist_args(args, req_param):
+            return
+
+        self.job.load_job_file(args.job)
